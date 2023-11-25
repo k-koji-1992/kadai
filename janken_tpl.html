@@ -15,12 +15,15 @@
 
 <main>
   <ul>
-    <li id="gu_btn">グー</li>
-    <li id="cho_btn">チョキ</li>
-    <li id="par_btn">パー</li>
+    <li class="choice" data-choice="グー">グー</li>
+    <li class="choice" data-choice="チョキ">チョキ</li>
+    <li class="choice" data-choice="パー">パー</li>
   </ul>
-  <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
-  <div id="judgment">勝ち</div>
+  <div>コンピュータの出した手は？「<span id="pc_result">なに？</span>」</div>
+  <div id="result">勝ち</div>
+  <div id="score">勝利回数: <span id="winCount">0</span></div>
+
+  </div>
 </main>
 
 <footer></footer>
@@ -29,53 +32,44 @@
 
 //プレイヤーがボタンを押したときの処理
 
-$(document).ready(function() {
-  $("#gu_btn").on("click", function() {
-    let r = Math.floor(Math.random() * 3);
-    console.log(r);
-    if (r == 0) {
- $("#pc_hands").text("グー");
- $("#judgment").text("あいこ");
-} else if(r==1) {
-  $("#pc_hands").text("チョキ");
-  $("#judgment").text("勝ち");
-} else if(r==2) {
-  $("#pc_hands").text("パー");
-  $("#judgment").text("負け");
-}
-  });
+$(document).ready(function () {
+      let winCount = 0;
 
-  $("#cho_btn").on("click", function() {
-    let r = Math.floor(Math.random() * 3);
-    console.log(r);
-    if (r == 0) {
- $("#pc_hands").text("グー");
- $("#judgment").text("負け");
-} else if(r==1) {
-  $("#pc_hands").text("チョキ");
-  $("#judgment").text("あいこ");
-} else if(r==2) {
-  $("#pc_hands").text("パー");
-  $("#judgment").text("勝ち");
-}
-  });
-  $("#par_btn").on("click", function() {
-    let r = Math.floor(Math.random() * 3);
-    console.log(r);
-    if (r == 0) {
- $("#pc_hands").text("グー");
- $("#judgment").text("勝ち");
-} else if(r==1) {
-  $("#pc_hands").text("チョキ");
-  $("#judgment").text("負け");
-} else if(r==2) {
-  $("#pc_hands").text("パー");
-  $("#judgment").text("あいこ");
-}
-  });
+      $(".choice").on("click", function () {
+        const playerChoice = $(this).data("choice");
+        const computerChoice = getComputerChoice();
+        const result = determineWinner(playerChoice, computerChoice);
+      
+        $("#pc_result").text(`${computerChoice}`);
 
- 
-});
+        $("#result").text(`結果: ${result}`);
+
+        if (result === "勝ち") {
+          winCount++;
+          $("#winCount").text(winCount);
+        }
+      });
+
+      function getComputerChoice() {
+        const choices = ["グー", "パー", "チョキ"];
+        const randomIndex = Math.floor(Math.random() * 3);
+        return choices[randomIndex];
+      }
+
+      function determineWinner(player, computer) {
+        if (player === computer) {
+          return "引き分け";
+        } else if (
+          (player === "グー" && computer === "チョキ") ||
+          (player === "パー" && computer === "グー") ||
+          (player === "チョキ" && computer === "パー")
+        ) {
+          return "勝ち";
+        } else {
+          return "負け";
+        }
+      }
+    });
 
 
     
