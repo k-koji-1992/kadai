@@ -22,16 +22,17 @@
   <div>コンピュータの出した手は？「<span id="pc_result">なに？</span>」</div>
   <div id="result">勝ち</div>
   <div id="score">勝利回数: <span id="winCount">0</span></div>
+  <div>
+    <img id="popup-image" src="img/55050003.webp">
+
+  </div>
 
   </div>
 </main>
 
 <footer></footer>
 <script>
-//じゃんけん用のSCRIPTを書いてください
-
-//プレイヤーがボタンを押したときの処理
-
+ $("#popup-image").fadeOut(1);//消えているものが現れる。
 $(document).ready(function () {
       let winCount = 0;
 
@@ -47,6 +48,8 @@ $(document).ready(function () {
         if (result === "勝ち") {
           winCount++;
           $("#winCount").text(winCount);
+          if(winCount == 5)
+          $("#popup-image").fadeIn(10);//消えているものが現れる。
         }
       });
 
@@ -54,6 +57,7 @@ $(document).ready(function () {
         const choices = ["グー", "パー", "チョキ"];
         const randomIndex = Math.floor(Math.random() * 3);
         return choices[randomIndex];
+
       }
 
       function determineWinner(player, computer) {
@@ -73,7 +77,7 @@ $(document).ready(function () {
 
 
     
-    //勝ち負けの判定
+
 
     
     

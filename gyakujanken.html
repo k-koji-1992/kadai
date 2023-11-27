@@ -30,53 +30,35 @@
 
 //プレイヤーがボタンを押したときの処理
 
-$(document).ready(function() {
-  $("#gu_btn").on("click", function() {
-    let r = Math.floor(Math.random() * 3);
-    console.log(r);
-    if (r == 0) {
- $("#pc_hands").text("グー");
- $("#judgment").text("あいこ");
-} else if(r==1) {
-  $("#pc_hands").text("チョキ");
-  $("#judgment").text("勝ち");
-} else if(r==2) {
-  $("#pc_hands").text("パー");
-  $("#judgment").text("負け");
-}
-  });
 
-  $("#cho_btn").on("click", function() {
     let r = Math.floor(Math.random() * 3);
     console.log(r);
     if (r == 0) {
  $("#pc_hands").text("グー");
- $("#judgment").text("負け");
+
 } else if(r==1) {
   $("#pc_hands").text("チョキ");
-  $("#judgment").text("あいこ");
+
 } else if(r==2) {
   $("#pc_hands").text("パー");
-  $("#judgment").text("勝ち");
+
 }
-  });
-  $("#par_btn").on("click", function() {
-    let r = Math.floor(Math.random() * 3);
-    console.log(r);
-    if (r == 0) {
- $("#pc_hands").text("グー");
- $("#judgment").text("勝ち");
+let a  = Math.floor(Math.random() * 3);
+    console.log(a);
+    
+    if (a == 0) {
+ $("#shiji").text("勝ってください");
+
 } else if(r==1) {
-  $("#pc_hands").text("チョキ");
-  $("#judgment").text("負け");
+  $("#shiji").text("負けてください");
+
 } else if(r==2) {
-  $("#pc_hands").text("パー");
-  $("#judgment").text("あいこ");
+  $("#shiji").text("あいこにしてください");
+
 }
-  });
 
  
-});
+
 
 
     
