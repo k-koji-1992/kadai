@@ -22,9 +22,8 @@
   <div>コンピュータの出した手は？「<span id="pc_result">なに？</span>」</div>
   <div id="result">勝ち</div>
   <div id="score">勝利回数: <span id="winCount">0</span></div>
-  <div>
-    <img id="popup-image" src="img/55050003.webp">
-
+  <div id="imageContainer">
+    <img id="hiddenImage" src="img/frame_omedetou_tate.jpg" >
   </div>
 
   </div>
@@ -32,7 +31,7 @@
 
 <footer></footer>
 <script>
- $("#popup-image").fadeOut(1);//消えているものが現れる。
+
 $(document).ready(function () {
       let winCount = 0;
 
@@ -49,7 +48,7 @@ $(document).ready(function () {
           winCount++;
           $("#winCount").text(winCount);
           if(winCount == 5)
-          $("#popup-image").fadeIn(10);//消えているものが現れる。
+          $("#hiddenImage").fadeIn(10);
         }
       });
 

@@ -21,7 +21,7 @@
     <li id="cho_btn">チョキ</li>
     <li id="par_btn">パー</li>
   </ul>
-  <div id ="judgment">OK</div>
+
 </main>
 
 <footer></footer>
@@ -49,16 +49,67 @@ let a  = Math.floor(Math.random() * 3);
     if (a == 0) {
  $("#shiji").text("勝ってください");
 
-} else if(r==1) {
+} else if(a == 1) {
   $("#shiji").text("負けてください");
 
-} else if(r==2) {
+} else if(a == 2) {
   $("#shiji").text("あいこにしてください");
 
 }
 
- 
+$("#gu_btn").on("click", function () {
+  const b = 0
+  console.log(b);
+  if (r == 0 && a == 2 && b == 0){
+  $("#udgment").text("OK");
+  alert("OK");
+ }else if (r == 1 && a == 0 && b == 0){
+  $("#judgment").text("OK");
+  alert("OK")
+ }else if (r == 2 && a == 1 && b == 0){
+  $("#judgment").text("OK");
+  alert("OK")
+ }else {
+  $("#judgment").text("NG");
+  alert("NG")
+ }
+});
 
+  $("#par_btn").on("click", function () {
+  const c = 1
+  console.log(c);
+  if(r == 0 && a == 0 && c == 1){
+  $("#judgment").text("OK");
+ } else if (r == 1 && a == 1 && c == 1){
+  $("#judgment").text(!"OK");
+  alert("OK")
+ }else if (r == 2 && a == 2 && c == 1){
+  $("#judgment").text("OK");
+  alert("OK")
+ }else {
+  $("#judgment").text("NG");
+  alert("NG")
+ }
+});
+  $("#cho_btn").on("click", function () {
+  const d  = 2
+  console.log(d);
+  if (r == 0 && a == 1 && d == 2){
+  $("#judgment").text("OK");
+  alert("OK");
+ } else if (r == 1 && a == 2 && d == 2){
+  $("#judgment").text("OK");
+  alert("OK")
+ }else if (r == 2 && a == 0 && d == 2){
+  $("#judgment").text("OK");
+  alert("OK")
+ }else {
+  $("#judgment").text("NG");
+  alert("NG")
+ }
+});
+
+ 
 
 
     
